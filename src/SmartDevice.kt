@@ -1,9 +1,18 @@
-class SmartDevice {
-    fun turnOn(){
-        println("smart encendido")
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
+open class SmartDevice(val name: String, val category: String) {
+
+    var deviceStatus = "online"
+        protected set
+
+    open val deviceType = "unknown"
+
+    open fun turnOn() {
+        deviceStatus = "on"
     }
 
-    fun turnOff(){
-        println("smart apagado")
+    open fun turnOff() {
+        deviceStatus = "off"
     }
 }
